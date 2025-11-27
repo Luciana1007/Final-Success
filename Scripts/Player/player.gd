@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 @export var move_speed : float #el export permite observar y cambiar variables en el inspector
 @export var jump_speed : float
+@export var health : int = 5
+@export var damage : int = 5
 @onready var animated_sprite = $AnimatedSprite2D #onready sirve para obtener la referencia antes de que empiece el juego, por lo tanto no es nula
 var is_facing_right = true
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") #obtenemos la gravedad desde la configuración del proyecto
@@ -43,3 +45,15 @@ func jump(delta):
 	
 	if not is_on_floor(): 
 		velocity.y += gravity * delta
+
+func take_damage(amount: int): #si recibe daño la vida baja y si la vida es igual o menor a 0, muere
+	health -= amount
+	if health <= 0:
+		die()
+
+func die():
+	queue_free()
+
+func _on_area_2d_body_entered(body: Node2D) -> void: #si dentro de su area entra un enemigo, recibe daño
+	if body.is_in_group("enemigo"):
+		take_damage(5)

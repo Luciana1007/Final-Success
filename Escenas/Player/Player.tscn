@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bc53j5d64jahi"]
+[gd_scene load_steps=24 format=3 uid="uid://bc53j5d64jahi"]
 
 [ext_resource type="Script" uid="uid://dcf7vki5njs4x" path="res://Scripts/Player/player.gd" id="1_wwpud"]
 [ext_resource type="Texture2D" uid="uid://bbroacoptihby" path="res://Assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 01.png" id="2_kwdw2"]
@@ -25,14 +25,6 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_1bmxy")
-}],
-"loop": true,
-"name": &"Fall",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": ExtResource("4_pv6b1")
 }, {
 "duration": 1.0,
@@ -45,8 +37,16 @@ animations = [{
 "texture": ExtResource("7_gjle3")
 }],
 "loop": true,
-"name": &"Hit",
+"name": &"Dead",
 "speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_1bmxy")
+}],
+"loop": true,
+"name": &"Fall",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -112,6 +112,9 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hhy33"]
+height = 28.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6kadr"]
 height = 26.0
 
 [node name="Player" type="CharacterBody2D"]
@@ -125,11 +128,20 @@ texture = ExtResource("2_kwdw2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3tm5s")
-animation = &"Fall"
+animation = &"Idle"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(1, 0)
 zoom = Vector2(2, 2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
 shape = SubResource("CapsuleShape2D_hhy33")
+
+[node name="Area2D" type="Area2D" parent="." groups=["player"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -2)
+shape = SubResource("CapsuleShape2D_6kadr")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
