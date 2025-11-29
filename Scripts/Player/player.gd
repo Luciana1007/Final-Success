@@ -5,8 +5,11 @@ extends CharacterBody2D
 @export var health : int = 5
 @export var damage : int = 5
 @onready var animated_sprite = $AnimatedSprite2D #onready sirve para obtener la referencia antes de que empiece el juego, por lo tanto no es nula
+@onready var key_indicator: Sprite2D = $KeyIndicator
+
 var is_facing_right = true
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") #obtenemos la gravedad desde la configuración del proyecto
+var has_key = false
 
 func _physics_process(delta):
 	jump(delta)
@@ -63,3 +66,31 @@ func _on_area_2d_body_entered(body: Node2D) -> void: #si dentro de su area entra
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("enemigo"):
 		take_damage(5)
+
+func add_key():
+	has_key = true
+	key_indicator.visible = true
+	key_animation()
+
+func remove_key():
+	has_key = false
+	key_indicator.visible = false
+
+func key_animation():
+	var original_pos_Y = key_indicator.position.y
+	var tween = create_tween()
+	tween.set_loops()  #el tween se repite infinitoo
+	
+	tween.tween_property(
+		key_indicator,
+		"position:y",
+		original_pos_Y -4,
+		0.4
+	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	
+	tween.tween_property(
+		key_indicator,
+		"position:y",
+		original_pos_Y + 4,
+		0.4
+	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)

@@ -1,0 +1,65 @@
+[gd_scene load_steps=12 format=3 uid="uid://bse7p82gbqwrg"]
+
+[ext_resource type="Script" uid="uid://ibn6hna27h4l" path="res://Scripts/Objetos/Diamante/diamante.gd" id="1_ir1y2"]
+[ext_resource type="Texture2D" uid="uid://dmc17obbrock8" path="res://Assets/Treasure Hunters/Pirate Treasure/Sprites/Diamond Effect/01.png" id="1_ss1ts"]
+[ext_resource type="Texture2D" uid="uid://dhvvk7imh016k" path="res://Assets/Treasure Hunters/Pirate Treasure/Sprites/Diamond Effect/02.png" id="2_ir1y2"]
+[ext_resource type="Texture2D" uid="uid://odwx2pe8cg4f" path="res://Assets/Treasure Hunters/Pirate Treasure/Sprites/Diamond Effect/03.png" id="3_2cte5"]
+[ext_resource type="Texture2D" uid="uid://c87887idpdadv" path="res://Assets/Treasure Hunters/Pirate Treasure/Sprites/Diamond Effect/04.png" id="4_yuksy"]
+[ext_resource type="Texture2D" uid="uid://dxayb0am8kqct" path="res://Assets/Treasure Hunters/Pirate Treasure/Sprites/Blue Diamond/01.png" id="5_gb0wv"]
+[ext_resource type="Texture2D" uid="uid://ivqa8kq30ru" path="res://Assets/Treasure Hunters/Pirate Treasure/Sprites/Blue Diamond/02.png" id="6_1t5bs"]
+[ext_resource type="Texture2D" uid="uid://bsenxfx48full" path="res://Assets/Treasure Hunters/Pirate Treasure/Sprites/Blue Diamond/03.png" id="7_pmxqt"]
+[ext_resource type="Texture2D" uid="uid://un34k05rvcgf" path="res://Assets/Treasure Hunters/Pirate Treasure/Sprites/Blue Diamond/04.png" id="8_ic5fg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ou2b3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ss1ts")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ir1y2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2cte5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_yuksy")
+}],
+"loop": false,
+"name": &"Collected",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_gb0wv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_1t5bs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_pmxqt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ic5fg")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ns5nd"]
+radius = 8.062258
+
+[node name="Diamante" type="Area2D" groups=["objetos"]]
+script = ExtResource("1_ir1y2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.7916667, 0.7916667)
+sprite_frames = SubResource("SpriteFrames_ou2b3")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ns5nd")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

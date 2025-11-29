@@ -21,7 +21,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("3_lb84y")
 }],
-"loop": true,
+"loop": false,
 "name": &"Collected",
 "speed": 5.0
 }, {
@@ -46,12 +46,13 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_lb84y"]
 radius = 9.0
 
-[node name="Moneda" type="Area2D"]
+[node name="Moneda" type="Area2D" groups=["objetos"]]
 script = ExtResource("1_wbgnp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_wbgnp")
 animation = &"Idle"
+autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_lb84y")
