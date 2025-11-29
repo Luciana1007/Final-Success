@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://chqfi6k60ylj3"]
+
+[ext_resource type="Texture2D" uid="uid://brnuiaerkxrs" path="res://Assets/Treasure Hunters/Palm Tree Island/Sprites/Background/BG Image.png" id="1_3vly5"]
+[ext_resource type="Texture2D" uid="uid://db528iomxcnsa" path="res://Assets/Treasure Hunters/Palm Tree Island/Sprites/Background/Big Clouds.png" id="2_r8di3"]
+
+[node name="Parallax" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground"]
+scale = Vector2(1.3333334, 2.25)
+texture = ExtResource("1_3vly5")
+centered = false
+
+[node name="Nubes cerca" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(0, 94.8)
+motion_scale = Vector2(2, 2)
+motion_mirroring = Vector2(890, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Nubes cerca"]
+position = Vector2(1, 0)
+texture = ExtResource("2_r8di3")
+centered = false
+
+[node name="Nubes cerca2" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(445, 94.8)
+motion_scale = Vector2(2, 2)
+motion_mirroring = Vector2(890, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Nubes cerca2"]
+position = Vector2(1, 0)
+texture = ExtResource("2_r8di3")
+centered = false
