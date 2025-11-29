@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnmhsivgpxkse"]
+
+[ext_resource type="Texture2D" uid="uid://1nnybvls863r" path="res://Assets/Treasure Hunters/Palm Tree Island/Sprites/Objects/Spikes/Spikes.png" id="1_vi7eh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lkssm"]
+size = Vector2(21, 10)
+
+[node name="Pinches" type="Area2D" groups=["enemigo"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2.3841858e-07, -3.0000002)
+scale = Vector2(0.6875, 0.6875)
+texture = ExtResource("1_vi7eh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_lkssm")

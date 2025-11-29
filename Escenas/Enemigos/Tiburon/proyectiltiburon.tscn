@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://doqnr48a0tkm1"]
+
+[ext_resource type="Script" uid="uid://i42qhxubpfug" path="res://Scripts/Enemigos/Tiburon/proyectiltiburon.gd" id="1_wht80"]
+[ext_resource type="Texture2D" uid="uid://bncs01nvpej0o" path="res://Assets/Treasure Hunters/Wood and Paper UI/Sprites/Yellow Button/1.png" id="2_bete4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xcm70"]
+radius = 9.0
+
+[node name="ProyectilTiburon" type="Area2D" groups=["enemigo"]]
+script = ExtResource("1_wht80")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.9105392, 0.39707705, 9.62615e-07, 1)
+texture = ExtResource("2_bete4")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xcm70")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

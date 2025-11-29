@@ -1,5 +1,6 @@
-[gd_scene load_steps=29 format=3 uid="uid://cyc3fl0v171ar"]
+[gd_scene load_steps=30 format=3 uid="uid://cyc3fl0v171ar"]
 
+[ext_resource type="Script" uid="uid://bo5s1h8w5p43" path="res://Scripts/Enemigos/Estrella/estrella.gd" id="1_kwqs5"]
 [ext_resource type="Texture2D" uid="uid://bd10nsclpj7k1" path="res://Assets/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/06-Anticipation/Anticipation 01.png" id="1_rtpg3"]
 [ext_resource type="Texture2D" uid="uid://dh7lptppicgys" path="res://Assets/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/06-Anticipation/Anticipation 02.png" id="2_rwfky"]
 [ext_resource type="Texture2D" uid="uid://tyrv4tas6uq1" path="res://Assets/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/06-Anticipation/Anticipation 03.png" id="3_wv4h3"]
@@ -130,7 +131,8 @@ radius = 12.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_r1cxl"]
 radius = 12.0
 
-[node name="Estrella" type="CharacterBody2D"]
+[node name="Estrella" type="CharacterBody2D" groups=["enemigo"]]
+script = ExtResource("1_kwqs5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_vqafi")
@@ -140,8 +142,14 @@ animation = &"Idle"
 position = Vector2(0, 2)
 shape = SubResource("CircleShape2D_ghqsq")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="TakeDamage" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TakeDamage"]
 position = Vector2(0, 2)
 shape = SubResource("CircleShape2D_r1cxl")
+
+[node name="JumpTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="JumpTimer" to="." method="_on_jump_timer_timeout"]

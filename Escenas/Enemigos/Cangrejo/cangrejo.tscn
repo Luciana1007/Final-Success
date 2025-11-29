@@ -143,6 +143,7 @@ size = Vector2(40, 12)
 
 [node name="Cangrejo" type="CharacterBody2D" groups=["enemigo"]]
 script = ExtResource("1_qb5ks")
+knockback = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ijn0y")
@@ -156,12 +157,23 @@ shape = SubResource("CapsuleShape2D_oukfd")
 position = Vector2(2, -0.125)
 shape = SubResource("RectangleShape2D_mfokh")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="TakeDamage" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TakeDamage"]
 position = Vector2(1, 2)
 shape = SubResource("CapsuleShape2D_cl5ej")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="TakeDamage"]
 position = Vector2(2, 0)
 shape = SubResource("RectangleShape2D_26bl8")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="body_entered" from="TakeDamage" to="." method="_on_take_damage_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

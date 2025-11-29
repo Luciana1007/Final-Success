@@ -48,6 +48,7 @@ func jump(delta):
 
 func take_damage(amount: int): #si recibe daño la vida baja y si la vida es igual o menor a 0, muere
 	health -= amount
+	print("Recibi daño")
 	if health <= 0:
 		die()
 
@@ -56,4 +57,9 @@ func die():
 
 func _on_area_2d_body_entered(body: Node2D) -> void: #si dentro de su area entra un enemigo, recibe daño
 	if body.is_in_group("enemigo"):
+		take_damage(5)
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.is_in_group("enemigo"):
 		take_damage(5)

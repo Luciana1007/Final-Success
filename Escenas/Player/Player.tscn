@@ -115,9 +115,9 @@ animations = [{
 height = 28.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6kadr"]
-height = 26.0
+radius = 13.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_wwpud")
 move_speed = 140.0
 jump_speed = 400.0
@@ -138,10 +138,11 @@ zoom = Vector2(2, 2)
 position = Vector2(0, -2)
 shape = SubResource("CapsuleShape2D_hhy33")
 
-[node name="Area2D" type="Area2D" parent="." groups=["player"]]
+[node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, -2)
 shape = SubResource("CapsuleShape2D_6kadr")
 
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

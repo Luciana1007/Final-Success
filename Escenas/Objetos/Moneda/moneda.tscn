@@ -1,0 +1,59 @@
+[gd_scene load_steps=11 format=3 uid="uid://bwdxkpm02jimm"]
+
+[ext_resource type="Texture2D" uid="uid://b0svl4p5dsso8" path="res://Assets/Treasure Hunters/Pirate Treasure/Sprites/Coin Effect/01.png" id="1_357mc"]
+[ext_resource type="Texture2D" uid="uid://bl4lv60wske3m" path="res://Assets/Treasure Hunters/Pirate Treasure/Sprites/Gold Coin/01.png" id="1_qnmy4"]
+[ext_resource type="Script" uid="uid://bf2b77vp2qfr3" path="res://Scripts/Objetos/Moneda/moneda.gd" id="1_wbgnp"]
+[ext_resource type="Texture2D" uid="uid://d107ob642f3te" path="res://Assets/Treasure Hunters/Pirate Treasure/Sprites/Gold Coin/02.png" id="2_qf53a"]
+[ext_resource type="Texture2D" uid="uid://ikfeq6r06qf" path="res://Assets/Treasure Hunters/Pirate Treasure/Sprites/Coin Effect/02.png" id="2_wbgnp"]
+[ext_resource type="Texture2D" uid="uid://630ajp26w17h" path="res://Assets/Treasure Hunters/Pirate Treasure/Sprites/Gold Coin/03.png" id="3_jna88"]
+[ext_resource type="Texture2D" uid="uid://dyk7hby6vjeow" path="res://Assets/Treasure Hunters/Pirate Treasure/Sprites/Coin Effect/03.png" id="3_lb84y"]
+[ext_resource type="Texture2D" uid="uid://d356mp2mj3xh0" path="res://Assets/Treasure Hunters/Pirate Treasure/Sprites/Gold Coin/04.png" id="4_357mc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wbgnp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_357mc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_wbgnp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_lb84y")
+}],
+"loop": true,
+"name": &"Collected",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_qnmy4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_qf53a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_jna88")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_357mc")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lb84y"]
+radius = 9.0
+
+[node name="Moneda" type="Area2D"]
+script = ExtResource("1_wbgnp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wbgnp")
+animation = &"Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_lb84y")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
