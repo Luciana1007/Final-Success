@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://doojvmqhwj5ef"]
+[gd_scene load_steps=38 format=3 uid="uid://doojvmqhwj5ef"]
 
 [ext_resource type="Texture2D" uid="uid://bisxwc32ahv28" path="res://Assets/Treasure Hunters/The Crusty Crew/Sprites/Crabby/06-Anticipation/Anticipation 01.png" id="1_ewww0"]
 [ext_resource type="Script" uid="uid://bopp6bmwegn34" path="res://Scripts/Enemigos/Cangrejo/cangrejo.gd" id="1_qb5ks"]
@@ -27,6 +27,10 @@
 [ext_resource type="Texture2D" uid="uid://ly1atgrosoiw" path="res://Assets/Treasure Hunters/The Crusty Crew/Sprites/Crabby/02-Run/Run 04.png" id="17_x0c4g"]
 [ext_resource type="Texture2D" uid="uid://m8fruhkuxs2t" path="res://Assets/Treasure Hunters/The Crusty Crew/Sprites/Crabby/02-Run/Run 05.png" id="18_io68g"]
 [ext_resource type="Texture2D" uid="uid://bmqeampy2q2rc" path="res://Assets/Treasure Hunters/The Crusty Crew/Sprites/Crabby/02-Run/Run 06.png" id="19_orte7"]
+[ext_resource type="Texture2D" uid="uid://c61h4flgnbnwf" path="res://Assets/Treasure Hunters/The Crusty Crew/Sprites/Dialogue/Dead/Dead In 01.png" id="28_5syqv"]
+[ext_resource type="Texture2D" uid="uid://dyhn0t0vs3pss" path="res://Assets/Treasure Hunters/The Crusty Crew/Sprites/Dialogue/Dead/Dead In 02.png" id="29_kbwcn"]
+[ext_resource type="Texture2D" uid="uid://cx3eohfg7v4sw" path="res://Assets/Treasure Hunters/The Crusty Crew/Sprites/Dialogue/Dead/Dead In 03.png" id="30_8r8ys"]
+[ext_resource type="Texture2D" uid="uid://dih0lgccjmmeu" path="res://Assets/Treasure Hunters/The Crusty Crew/Sprites/Dialogue/Dead/Dead Out 01.png" id="31_x0c4g"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ijn0y"]
 animations = [{
@@ -141,6 +145,26 @@ height = 26.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_26bl8"]
 size = Vector2(40, 12)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_5syqv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("28_5syqv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_kbwcn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_8r8ys")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_x0c4g")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Cangrejo" type="CharacterBody2D" groups=["enemigo"]]
 script = ExtResource("1_qb5ks")
 knockback = 2
@@ -173,6 +197,13 @@ autostart = true
 [node name="AttackTimer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
+
+[node name="PacmanSign" type="AnimatedSprite2D" parent="."]
+position = Vector2(12, -10)
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_5syqv")
+frame = 1
+frame_progress = 0.85008395
 
 [connection signal="body_entered" from="TakeDamage" to="." method="_on_take_damage_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

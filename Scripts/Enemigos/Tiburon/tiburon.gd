@@ -11,6 +11,7 @@ extends Enemigo
 var state = "idle"
 
 func _ready():
+	super._ready()
 	attack_timer.wait_time = piumpium_wait
 	attack_timer.start()
 	
@@ -20,14 +21,17 @@ func _physics_process(delta):
 		"idle":
 			animated_sprite_2d.play("Idle")
 		"attack":
+			animated_sprite_2d.play("Pre Attack")
+			await animated_sprite_2d.animation_finished
+			shoot()
 			animated_sprite_2d.play("Attack")
-			
+			await animated_sprite_2d.animation_finished
+			state = "idle"
 
 
 func _on_attack_timer_timeout() -> void:
 	state = "attack"
-	shoot()
-
+	
 func shoot():
 	print("DISPARANDO...")
 	if proyectil_scene == null:

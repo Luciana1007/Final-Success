@@ -1,8 +1,10 @@
-[gd_scene load_steps=25 format=3 uid="uid://bc53j5d64jahi"]
+[gd_scene load_steps=28 format=3 uid="uid://bc53j5d64jahi"]
 
 [ext_resource type="Script" uid="uid://dcf7vki5njs4x" path="res://Scripts/Player/player.gd" id="1_wwpud"]
 [ext_resource type="Texture2D" uid="uid://bbroacoptihby" path="res://Assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 01.png" id="2_kwdw2"]
+[ext_resource type="PackedScene" uid="uid://d18et6xynho1q" path="res://Escenas/Objetos/Llave/llave.tscn" id="2_p016m"]
 [ext_resource type="Texture2D" uid="uid://dn80pepmwf21a" path="res://Assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/04-Fall/Fall 01.png" id="3_1bmxy"]
+[ext_resource type="PackedScene" uid="uid://535eefifqo4j" path="res://Escenas/Objetos/Espada/Espada.tscn" id="3_7e4hv"]
 [ext_resource type="Texture2D" uid="uid://ceyhvp1wx0j15" path="res://Assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 02.png" id="3_j2dk4"]
 [ext_resource type="Texture2D" uid="uid://64g632kf2qh4" path="res://Assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/07-Dead Hit/Dead Hit 01.png" id="4_pv6b1"]
 [ext_resource type="Texture2D" uid="uid://dr32efgj3107c" path="res://Assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 03.png" id="4_urfe6"]
@@ -20,7 +22,14 @@
 [ext_resource type="Texture2D" uid="uid://h5gftexn2mt6" path="res://Assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 04.png" id="18_pekrw"]
 [ext_resource type="Texture2D" uid="uid://dj1nbrqccb2av" path="res://Assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 05.png" id="19_e8wbe"]
 [ext_resource type="Texture2D" uid="uid://cgimk6i83i0dk" path="res://Assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 06.png" id="20_2nyvx"]
-[ext_resource type="Texture2D" uid="uid://cq4rx4jaekktw" path="res://Assets/Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/1.png" id="21_p016m"]
+[ext_resource type="Texture2D" uid="uid://ddctuxlle8hgx" path="res://Assets/Treasure Hunters/Captain Clown Nose/Sprites/Dust Particles/Jump 04.png" id="23_7c1uo"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_drshg"]
+particle_flag_disable_z = true
+direction = Vector3(-1, 0, 0)
+initial_velocity_max = 50.0
+gravity = Vector3(0, 50, 0)
+color = Color(0.5488509, 0.84782773, 0.949032, 1)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3tm5s"]
 animations = [{
@@ -37,7 +46,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("7_gjle3")
 }],
-"loop": true,
+"loop": false,
 "name": &"Dead",
 "speed": 6.0
 }, {
@@ -65,7 +74,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("6_t27sq")
 }],
-"loop": true,
+"loop": false,
 "name": &"Idle",
 "speed": 6.0
 }, {
@@ -122,10 +131,16 @@ radius = 13.0
 script = ExtResource("1_wwpud")
 move_speed = 140.0
 jump_speed = 400.0
+key_scene = ExtResource("2_p016m")
+sword_scene = ExtResource("3_7e4hv")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-texture = ExtResource("2_kwdw2")
+[node name="RunParticles" type="GPUParticles2D" parent="."]
+position = Vector2(-14, 9)
+emitting = false
+texture = ExtResource("23_7c1uo")
+lifetime = 0.6
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_drshg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3tm5s")
@@ -145,11 +160,8 @@ shape = SubResource("CapsuleShape2D_hhy33")
 position = Vector2(0, -2)
 shape = SubResource("CapsuleShape2D_6kadr")
 
-[node name="KeyIndicator" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(0.99999976, -24.000002)
-scale = Vector2(0.6666667, 0.6666667)
-texture = ExtResource("21_p016m")
+[node name="ObjectHolder" type="Node2D" parent="."]
+position = Vector2(0, -21)
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

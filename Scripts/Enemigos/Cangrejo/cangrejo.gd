@@ -8,10 +8,12 @@ extends Enemigo
 @onready var timer: Timer = $Timer
 @onready var attack_timer: Timer = $AttackTimer
 
+
 var direction := 1
 var state := "walk"
 
 func _ready():
+	super._ready()
 	timer.wait_time = run_duration
 	attack_timer.wait_time = attack_duration
 	

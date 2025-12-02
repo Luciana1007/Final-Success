@@ -31,21 +31,21 @@ func _physics_process(delta):
 		velocity.x = speed * direction
 		velocity.y = 0
 	else:
-		velocity.x = speed * direction
-		velocity.y = 0
+		velocity.x = 0
+		velocity.y = speed * direction
 	move_and_slide()
 	
-	if move_type == "Horizontal": #verificar llegada a los extremos
-		if direction == 1 and position.x >= end_position.x :
+	if move_type == "Horizontal":
+		if direction == 1 and position.x >= end_position.x:
 			reach_end()
-		elif direction == -1 and position.x <= start_position.x :
+		elif direction == -1 and position.x <= start_position.x:
 			reach_end()
 	else:
-		if direction == 1 and position.y >= end_position.y :
+		if direction == 1 and position.y >= end_position.y:
 			reach_end()
 		elif direction == -1 and position.y <= start_position.y:
 			reach_end()
-			
+
 func reach_end():
 	wainting = true
 	velocity = Vector2.ZERO

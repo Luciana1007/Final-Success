@@ -45,7 +45,7 @@ radius = 22.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_5l3tx"]
 radius = 22.0
 
-[node name="CabezaPincho" type="CharacterBody2D" groups=["enemigo"]]
+[node name="CabezaPincho" type="CharacterBody2D" groups=["obstaculo"]]
 script = ExtResource("1_a0j4a")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

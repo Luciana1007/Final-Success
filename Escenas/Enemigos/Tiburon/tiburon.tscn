@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://d3sccli58shra"]
+[gd_scene load_steps=37 format=3 uid="uid://d3sccli58shra"]
 
 [ext_resource type="Script" uid="uid://cvawmvp62ahaa" path="res://Scripts/Enemigos/Tiburon/tiburon.gd" id="1_ah0df"]
 [ext_resource type="Texture2D" uid="uid://bwu6gbsfuvatm" path="res://Assets/Treasure Hunters/The Crusty Crew/Sprites/Fierce Tooth/06-Anticipation/Anticipation 01.png" id="1_lqysl"]
@@ -28,19 +28,14 @@
 [ext_resource type="Texture2D" uid="uid://dtlilhw6axttk" path="res://Assets/Treasure Hunters/The Crusty Crew/Sprites/Fierce Tooth/02-Run/Run 04.png" id="24_fnpgt"]
 [ext_resource type="Texture2D" uid="uid://cnw4nphsbmbro" path="res://Assets/Treasure Hunters/The Crusty Crew/Sprites/Fierce Tooth/02-Run/Run 05.png" id="25_vh4wm"]
 [ext_resource type="Texture2D" uid="uid://oaow36u4djdp" path="res://Assets/Treasure Hunters/The Crusty Crew/Sprites/Fierce Tooth/02-Run/Run 06.png" id="26_ow6ln"]
+[ext_resource type="Texture2D" uid="uid://c61h4flgnbnwf" path="res://Assets/Treasure Hunters/The Crusty Crew/Sprites/Dialogue/Dead/Dead In 01.png" id="29_suma5"]
+[ext_resource type="Texture2D" uid="uid://dyhn0t0vs3pss" path="res://Assets/Treasure Hunters/The Crusty Crew/Sprites/Dialogue/Dead/Dead In 02.png" id="30_3ptbo"]
+[ext_resource type="Texture2D" uid="uid://cx3eohfg7v4sw" path="res://Assets/Treasure Hunters/The Crusty Crew/Sprites/Dialogue/Dead/Dead In 03.png" id="31_quaq2"]
+[ext_resource type="Texture2D" uid="uid://dih0lgccjmmeu" path="res://Assets/Treasure Hunters/The Crusty Crew/Sprites/Dialogue/Dead/Dead Out 01.png" id="32_ejf47"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6yqhx"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_lqysl")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_ah0df")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_os4d4")
-}, {
 "duration": 1.0,
 "texture": ExtResource("4_1yrqj")
 }, {
@@ -56,7 +51,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("8_suma5")
 }],
-"loop": true,
+"loop": false,
 "name": &"Attack",
 "speed": 5.0
 }, {
@@ -108,6 +103,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("1_lqysl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ah0df")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_os4d4")
+}],
+"loop": false,
+"name": &"Pre Attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("21_05n01")
 }, {
 "duration": 1.0,
@@ -136,6 +145,26 @@ height = 28.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ah0df"]
 height = 26.0
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_2le2l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("29_suma5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_3ptbo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_quaq2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_ejf47")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Tiburon" type="CharacterBody2D" groups=["enemigo"]]
 script = ExtResource("1_ah0df")
 proyectil_scene = ExtResource("2_os4d4")
@@ -158,7 +187,14 @@ shape = SubResource("CapsuleShape2D_ah0df")
 position = Vector2(-9, 0)
 
 [node name="AttackTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 6.0
 one_shot = true
+
+[node name="PacmanSign" type="AnimatedSprite2D" parent="."]
+position = Vector2(13, -15)
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_2le2l")
+frame = 1
+frame_progress = 0.713914
 
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

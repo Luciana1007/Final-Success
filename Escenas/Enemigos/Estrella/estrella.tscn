@@ -1,9 +1,6 @@
-[gd_scene load_steps=30 format=3 uid="uid://cyc3fl0v171ar"]
+[gd_scene load_steps=32 format=3 uid="uid://cyc3fl0v171ar"]
 
 [ext_resource type="Script" uid="uid://bo5s1h8w5p43" path="res://Scripts/Enemigos/Estrella/estrella.gd" id="1_kwqs5"]
-[ext_resource type="Texture2D" uid="uid://bd10nsclpj7k1" path="res://Assets/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/06-Anticipation/Anticipation 01.png" id="1_rtpg3"]
-[ext_resource type="Texture2D" uid="uid://dh7lptppicgys" path="res://Assets/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/06-Anticipation/Anticipation 02.png" id="2_rwfky"]
-[ext_resource type="Texture2D" uid="uid://tyrv4tas6uq1" path="res://Assets/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/06-Anticipation/Anticipation 03.png" id="3_wv4h3"]
 [ext_resource type="Texture2D" uid="uid://2tn1w5c4lp4p" path="res://Assets/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/07-Attack/Attack 01.png" id="4_m4eb3"]
 [ext_resource type="Texture2D" uid="uid://8568xlfrb6qs" path="res://Assets/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/07-Attack/Attack 02.png" id="5_b61td"]
 [ext_resource type="Texture2D" uid="uid://83bh38lq20oo" path="res://Assets/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/07-Attack/Attack 03.png" id="6_kwqs5"]
@@ -26,19 +23,14 @@
 [ext_resource type="Texture2D" uid="uid://bmkbro0jon0et" path="res://Assets/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/02-Run/Run 04.png" id="19_bigep"]
 [ext_resource type="Texture2D" uid="uid://drquf64upjsku" path="res://Assets/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/02-Run/Run 05.png" id="20_rgrot"]
 [ext_resource type="Texture2D" uid="uid://l8dt1qwohkrt" path="res://Assets/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/02-Run/Run 06.png" id="21_lycoe"]
+[ext_resource type="Texture2D" uid="uid://c61h4flgnbnwf" path="res://Assets/Treasure Hunters/The Crusty Crew/Sprites/Dialogue/Dead/Dead In 01.png" id="24_c58bq"]
+[ext_resource type="Texture2D" uid="uid://dyhn0t0vs3pss" path="res://Assets/Treasure Hunters/The Crusty Crew/Sprites/Dialogue/Dead/Dead In 02.png" id="25_7kj60"]
+[ext_resource type="Texture2D" uid="uid://cx3eohfg7v4sw" path="res://Assets/Treasure Hunters/The Crusty Crew/Sprites/Dialogue/Dead/Dead In 03.png" id="26_fhxc4"]
+[ext_resource type="Texture2D" uid="uid://dih0lgccjmmeu" path="res://Assets/Treasure Hunters/The Crusty Crew/Sprites/Dialogue/Dead/Dead Out 01.png" id="27_kqbfk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vqafi"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_rtpg3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_rwfky")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_wv4h3")
-}, {
 "duration": 1.0,
 "texture": ExtResource("4_m4eb3")
 }, {
@@ -51,9 +43,9 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("7_31e85")
 }],
-"loop": true,
+"loop": false,
 "name": &"Attack",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -131,6 +123,26 @@ radius = 12.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_r1cxl"]
 radius = 12.0
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_muai5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("24_c58bq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_7kj60")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_fhxc4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_kqbfk")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Estrella" type="CharacterBody2D" groups=["enemigo"]]
 script = ExtResource("1_kwqs5")
 
@@ -149,7 +161,14 @@ position = Vector2(0, 2)
 shape = SubResource("CircleShape2D_r1cxl")
 
 [node name="JumpTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 5.0
 autostart = true
+
+[node name="PacmanSign" type="AnimatedSprite2D" parent="."]
+position = Vector2(12, -9)
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_muai5")
+frame = 2
+frame_progress = 0.5639439
 
 [connection signal="timeout" from="JumpTimer" to="." method="_on_jump_timer_timeout"]
