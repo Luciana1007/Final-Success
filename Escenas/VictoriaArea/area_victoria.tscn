@@ -1,0 +1,76 @@
+[gd_scene load_steps=14 format=3 uid="uid://summa4vngwpi"]
+
+[ext_resource type="Texture2D" uid="uid://xkiq4tu4rjr7" path="res://Assets/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Active/Flag 01.png" id="1_3di3i"]
+[ext_resource type="Script" uid="uid://b17o5m1wkoyqx" path="res://Scripts/VictoriaArea/area_victoria.gd" id="1_llouq"]
+[ext_resource type="Texture2D" uid="uid://dgf7fafsgsgk1" path="res://Assets/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Active/Flag 02.png" id="2_llouq"]
+[ext_resource type="Texture2D" uid="uid://cdjye2fhym7br" path="res://Assets/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Active/Flag 03.png" id="3_hjlp5"]
+[ext_resource type="Texture2D" uid="uid://h0mt62ab3nsh" path="res://Assets/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Active/Flag 04.png" id="4_fx7ey"]
+[ext_resource type="Texture2D" uid="uid://sie4hge1dfle" path="res://Assets/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Active/Flag 05.png" id="5_efuhi"]
+[ext_resource type="Texture2D" uid="uid://bjuk0iue1r02p" path="res://Assets/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Active/Flag 06.png" id="6_gsm61"]
+[ext_resource type="Texture2D" uid="uid://iw3lxxto1fsq" path="res://Assets/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Active/Flag 07.png" id="7_4cko4"]
+[ext_resource type="Texture2D" uid="uid://bnlqjqdcby1jy" path="res://Assets/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Active/Flag 08.png" id="8_wltx2"]
+[ext_resource type="Texture2D" uid="uid://cq6i1i8gt0lcg" path="res://Assets/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Active/Flag 09.png" id="9_8ebax"]
+[ext_resource type="Texture2D" uid="uid://bte2cpohga6k8" path="res://Assets/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Idle/Flag 00.png" id="10_3axjo"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dkhpa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3di3i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_llouq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hjlp5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_fx7ey")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_efuhi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_gsm61")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_4cko4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_wltx2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_8ebax")
+}],
+"loop": true,
+"name": &"Active",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_3axjo")
+}],
+"loop": false,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jswyi"]
+size = Vector2(15, 67)
+
+[node name="AreaVictoria" type="Area2D"]
+monitoring = false
+monitorable = false
+script = ExtResource("1_llouq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(4.249999, 0.50735116)
+scale = Vector2(0.7205882, 0.7205882)
+sprite_frames = SubResource("SpriteFrames_dkhpa")
+animation = &"Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.24999905, 0.0073509216)
+shape = SubResource("RectangleShape2D_jswyi")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

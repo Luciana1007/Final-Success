@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cq6i1i8gt0lcg"
-path="res://.godot/imported/Flag 09.png-f9f8428cd82f72df39bc9656401e0856.ctex"
+uid="uid://xkiq4tu4rjr7"
+path="res://.godot/imported/Flag 01.png-df19cdaa4df46b5c67dec2b9da916642.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Flag 09.png"
-dest_files=["res://.godot/imported/Flag 09.png-f9f8428cd82f72df39bc9656401e0856.ctex"]
+source_file="res://Assets/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Active/Flag 01.png"
+dest_files=["res://.godot/imported/Flag 01.png-df19cdaa4df46b5c67dec2b9da916642.ctex"]
 
 [params]
 

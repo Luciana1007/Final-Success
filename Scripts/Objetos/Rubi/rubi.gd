@@ -1,18 +1,10 @@
 extends Area2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
-var collected := false
-func _on_body_entered(body: Node2D): #cuando el body sea player, la moneda es recolectada
-	if collected:
-		return
-	
+func _on_body_entered(body: Node2D):
 	if body.is_in_group("player"):
-		collected = true
-		collision_shape_2d.set_deferred("disabled", true)
 		animated_sprite_2d.play("Collected") #se ejecuta la animación de recolectada
-		RecolectorMonedas.add_coin(1)
 		print("Fui recolectada")
+		get_tree().current_scene.add_time(5)
 		await (animated_sprite_2d.animation_finished) #cuando se termina dicha animación se elimina la moneda
-		
 		queue_free()

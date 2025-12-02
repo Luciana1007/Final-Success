@@ -67,7 +67,7 @@ animations = [{
 radius = 5.0
 height = 14.0
 
-[node name="Llave" type="Area2D" groups=["objetos"]]
+[node name="Llave" type="Area2D"]
 script = ExtResource("1_bt5d7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

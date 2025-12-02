@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://02mlqhx2gdke"]
+
+[ext_resource type="Texture2D" uid="uid://bl4lv60wske3m" path="res://Assets/Treasure Hunters/Pirate Treasure/Sprites/Gold Coin/01.png" id="1_1uqu6"]
+[ext_resource type="Script" uid="uid://pgfa7novy20x" path="res://Scripts/UIContadorMon/contador_monedas.gd" id="1_5bph3"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_5bph3")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 0
+offset_left = -39.0
+offset_top = -2.0
+offset_right = 1.0
+offset_bottom = 38.0
+texture = ExtResource("1_1uqu6")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -79.0
+offset_right = -39.0
+offset_bottom = 37.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 27
+text = "0"
+horizontal_alignment = 2

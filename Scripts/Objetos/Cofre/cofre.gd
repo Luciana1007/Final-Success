@@ -34,6 +34,5 @@ func open_chest(player):
 		global_position + Vector2(0, -40), 
 		0.3
 		).set_trans(Tween.TRANS_BOUNCE)
-	
+	RecolectorMonedas.add_coin(100)
 	get_parent().add_child(sword)
-	
