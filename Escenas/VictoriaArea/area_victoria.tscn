@@ -56,7 +56,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jswyi"]
-size = Vector2(15, 67)
+size = Vector2(15, 54.50735)
 
 [node name="AreaVictoria" type="Area2D"]
 monitoring = false
@@ -64,13 +64,13 @@ monitorable = false
 script = ExtResource("1_llouq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(4.249999, 0.50735116)
-scale = Vector2(0.7205882, 0.7205882)
+position = Vector2(3, 6.507351)
+scale = Vector2(0.64705884, 0.59155595)
 sprite_frames = SubResource("SpriteFrames_dkhpa")
 animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.24999905, 0.0073509216)
+position = Vector2(-0.24999905, 6.2536755)
 shape = SubResource("RectangleShape2D_jswyi")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

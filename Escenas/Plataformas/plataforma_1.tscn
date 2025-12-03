@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://bnqfi1tu01avd"]
+
+[ext_resource type="Script" uid="uid://c2jtghqosyhgb" path="res://Scripts/Plataformas/plataforma_1.gd" id="1_4chly"]
+[ext_resource type="Texture2D" uid="uid://be16a3fqso4r0" path="res://Assets/Barquito/Plataforma1.png" id="1_a5crd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4chly"]
+size = Vector2(44, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xnx2n"]
+size = Vector2(44, 32)
+
+[node name="Plataforma1" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_4chly")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_a5crd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -2)
+shape = SubResource("RectangleShape2D_4chly")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, -2)
+shape = SubResource("RectangleShape2D_xnx2n")

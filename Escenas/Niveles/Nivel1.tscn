@@ -1,12 +1,17 @@
-[gd_scene load_steps=19 format=4 uid="uid://b02qfrnkg5njx"]
+[gd_scene load_steps=40 format=4 uid="uid://b02qfrnkg5njx"]
 
 [ext_resource type="Script" uid="uid://buvoniklswbj5" path="res://Scripts/Niveles/nivel_1.gd" id="1_31n7l"]
 [ext_resource type="Texture2D" uid="uid://dp8csna3fwhvt" path="res://Assets/Treasure Hunters/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="1_i7rxx"]
 [ext_resource type="PackedScene" uid="uid://bc53j5d64jahi" path="res://Escenas/Player/Player.tscn" id="2_ighry"]
+[ext_resource type="Texture2D" uid="uid://b74oii1wwci04" path="res://Assets/Treasure Hunters/Palm Tree Island/Sprites/Front Palm Trees/Front Palm Bottom and Grass (32x32).png" id="3_4jjek"]
 [ext_resource type="PackedScene" uid="uid://chqfi6k60ylj3" path="res://Escenas/Parallax/parallax.tscn" id="3_57lar"]
+[ext_resource type="Texture2D" uid="uid://dw6pony0xrfrx" path="res://Assets/Treasure Hunters/Palm Tree Island/Sprites/Front Palm Trees/Front Palm Tree Top 01.png" id="4_lhd43"]
 [ext_resource type="PackedScene" uid="uid://doojvmqhwj5ef" path="res://Escenas/Enemigos/Cangrejo/cangrejo.tscn" id="4_mcl4o"]
 [ext_resource type="PackedScene" uid="uid://cyc3fl0v171ar" path="res://Escenas/Enemigos/Estrella/estrella.tscn" id="5_ltv3e"]
+[ext_resource type="Texture2D" uid="uid://bssxy52qvd4ah" path="res://Assets/Treasure Hunters/Palm Tree Island/Sprites/Front Palm Trees/Front Palm Tree Top 04.png" id="5_mqlg8"]
 [ext_resource type="PackedScene" uid="uid://d3sccli58shra" path="res://Escenas/Enemigos/Tiburon/tiburon.tscn" id="6_b023l"]
+[ext_resource type="Texture2D" uid="uid://b5s33wvnh588q" path="res://Assets/Treasure Hunters/Palm Tree Island/Sprites/Front Palm Trees/Front Palm Tree Top 02.png" id="6_smkmc"]
+[ext_resource type="Texture2D" uid="uid://bwxbroiu3frjc" path="res://Assets/Treasure Hunters/Palm Tree Island/Sprites/Front Palm Trees/Front Palm Tree Top 03.png" id="7_mba4l"]
 [ext_resource type="PackedScene" uid="uid://cnmhsivgpxkse" path="res://Escenas/Obstaculos/Pinches/pinches.tscn" id="7_v2l7u"]
 [ext_resource type="PackedScene" uid="uid://c32cpdw64aame" path="res://Escenas/Obstaculos/CabezaPincho/cabeza_pincho.tscn" id="8_heb5a"]
 [ext_resource type="PackedScene" uid="uid://bwdxkpm02jimm" path="res://Escenas/Objetos/Moneda/moneda.tscn" id="9_4uwuv"]
@@ -15,7 +20,12 @@
 [ext_resource type="PackedScene" uid="uid://666g6bx0rko4" path="res://Escenas/Objetos/Cofre/Cofre.tscn" id="12_sq1bk"]
 [ext_resource type="PackedScene" uid="uid://brw7ry4cxuasn" path="res://Escenas/Objetos/Rubi/Rubi.tscn" id="14_bdl3q"]
 [ext_resource type="PackedScene" uid="uid://02mlqhx2gdke" path="res://Escenas/UIContadorMon/ContadorMonedas.tscn" id="15_lxs20"]
+[ext_resource type="Texture2D" uid="uid://dcquiu8h33yyy" path="res://Assets/Treasure Hunters/Wood and Paper UI/Sprites/Prefabs/1.png" id="15_xwqj1"]
+[ext_resource type="FontFile" uid="uid://bnysi444ekg0m" path="res://Fonts/Daydream DEMO.otf" id="16_lu6xd"]
 [ext_resource type="PackedScene" uid="uid://summa4vngwpi" path="res://Escenas/VictoriaArea/area_victoria.tscn" id="16_yidto"]
+[ext_resource type="PackedScene" uid="uid://bnqfi1tu01avd" path="res://Escenas/Plataformas/plataforma_1.tscn" id="17_n1cna"]
+[ext_resource type="Texture2D" uid="uid://bturqp8q58fm8" path="res://Assets/Treasure Hunters/Wood and Paper UI/Sprites/Prefabs/8.png" id="19_866pe"]
+[ext_resource type="Script" uid="uid://cftvchcluxxoy" path="res://Scripts/Paneles/segundos_panel.gd" id="26_mqlg8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ighry"]
 texture = ExtResource("1_i7rxx")
@@ -397,21 +407,126 @@ texture = ExtResource("1_i7rxx")
 21:3/0 = 0
 21:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n1cna"]
+texture = ExtResource("3_4jjek")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_utdlr"]
+texture = ExtResource("4_lhd43")
+texture_region_size = Vector2i(19, 16)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sh1ul"]
+texture = ExtResource("5_mqlg8")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5l30r"]
+texture = ExtResource("6_smkmc")
+texture_region_size = Vector2i(19, 16)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fbg46"]
+texture = ExtResource("7_mba4l")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_57lar"]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ighry")
+sources/1 = SubResource("TileSetAtlasSource_n1cna")
+sources/2 = SubResource("TileSetAtlasSource_utdlr")
+sources/3 = SubResource("TileSetAtlasSource_sh1ul")
+sources/4 = SubResource("TileSetAtlasSource_5l30r")
+sources/5 = SubResource("TileSetAtlasSource_fbg46")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4jjek"]
+texture = ExtResource("19_866pe")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_866pe"]
+bg_color = Color(0.7647059, 0.4392157, 0.3019608, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4jjek"]
+bg_color = Color(0.48873365, 0.2574855, 0.1585831, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4lgou"]
+bg_color = Color(0.49019608, 0.25882354, 0.15686275, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n1cna"]
+bg_color = Color(0.49019608, 0.25882354, 0.15686275, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_smkmc"]
+texture = ExtResource("19_866pe")
 
 [node name="Nivel1" type="Node2D"]
 script = ExtResource("1_31n7l")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAAAAIAAAAAAAAAAAAAAAMAAAAAAAEAAAABAAIAAAABAAAAAAABAAMAAAAEAAQAAAACAAIAAAAFAAAAAAACAAMAAAAFAAQAAAABAAQAAAAEAAUAAAACAAQAAAAFAAUAAAAAAAQAAAAAAAUAAAABABAAAAABAAgAAAABABEAAAABAAkAAAACABAAAAACAAgAAAACABEAAAACAAkAAAADABAAAAADAAgAAAADABEAAAADAAkAAAAEABAAAAAEAAgAAAAEABEAAAAEAAkAAAAAABAAAAABAAgAAAAAABEAAAABAAkAAAAOAAAAAAAMAAYAAAAOAAEAAAAMAAcAAAAOAAIAAAAMAAgAAAAOAAMAAAAMAAkAAAAPAAAAAAANAAYAAAAPAAEAAAANAAcAAAAPAAIAAAANAAgAAAAPAAMAAAANAAkAAAAQAAAAAAAOAAYAAAAQAAEAAAAOAAcAAAAQAAIAAAAOAAgAAAAQAAMAAAAOAAkAAAARAAAAAAAPAAYAAAARAAEAAAAPAAcAAAARAAIAAAAPAAgAAAARAAMAAAAPAAkAAAAOAAQAAAAMAAYAAAAOAAUAAAAMAAcAAAAOAAYAAAAMAAgAAAAPAAQAAAANAAYAAAAPAAUAAAANAAcAAAAPAAYAAAANAAgAAAAQAAQAAAAOAAYAAAAQAAUAAAAOAAcAAAAQAAYAAAAOAAgAAAARAAQAAAAPAAYAAAARAAUAAAAPAAcAAAARAAYAAAAPAAgAAAAOAAkAAAAAAAUAAAAPAAkAAAADAAUAAAAQAAkAAAADAAUAAAARAAkAAAAFAAUAAAAFAAUAAAAIAAAAAAAFAAYAAAAIAAEAAAAFAAcAAAAIAAUAAAAGAAUAAAAJAAAAAAAGAAYAAAAJAAEAAAAGAAcAAAAJAAUAAAAOAAcAAAAMAAYAAAAPAAcAAAANAAYAAAAQAAcAAAAOAAYAAAARAAcAAAAPAAYAAAAOAAgAAAAMAAYAAAAPAAgAAAANAAYAAAAQAAgAAAAOAAYAAAARAAgAAAAPAAYAAAAFABAAAAADAAgAAAAFABEAAAADAAkAAAAGABAAAAAEAAgAAAAGABEAAAAEAAkAAAAHAA8AAAAAAAAAAAAHABAAAAAIAAEAAAAHABEAAAADAAkAAAAIAA8AAAAFAAgAAAAIABAAAAAJAAQAAAAIABEAAAAFAAkAAAD+/w8AAAAAAAAAAAD+/xAAAAAIAAEAAAD//w8AAAAFAAgAAAD//xAAAAAJAAQAAAD//xEAAAADAAkAAAD+/xEAAAAIAAUAAAAXAA8AAAADAAgAAAAXABAAAAADAAkAAAAYAA8AAAAEAAgAAAAYABAAAAAEAAkAAAAZAA8AAAACAAgAAAAZABAAAAACAAkAAAAaAA8AAAADAAgAAAAaABAAAAADAAkAAAAbAA8AAAAEAAgAAAAbABAAAAAEAAkAAAAcAA8AAAADAAgAAAAcABAAAAADAAkAAAAdAA8AAAAEAAgAAAAdABAAAAAEAAkAAAAeAA4AAAAAAAAAAAAeAA8AAAAIAAEAAAAeABAAAAADAAkAAAAfAA4AAAAFAAgAAAAfAA8AAAAJAAQAAAAfABAAAAAFAAkAAAANAA0AAAACAAAAAAANAA4AAAACAAEAAAANAA8AAAACAAUAAAAOAA0AAAADAAAAAAAOAA4AAAADAAEAAAAOAA8AAAADAAUAAAAPAA0AAAAEAAAAAAAPAA4AAAAEAAEAAAAPAA8AAAAEAAUAAAAQAA0AAAAJAAAAAAAQAA4AAAAJAAEAAAAQAA8AAAAJAAUAAAALAA0AAAAIAAAAAAALAA4AAAAIAAEAAAALAA8AAAAIAAUAAAAMAA0AAAABAAAAAAAMAA4AAAABAAEAAAAMAA8AAAABAAUAAAASAA4AAAAAAAAAAAASAA8AAAAIAAEAAAASABAAAAAIAAUAAAATAA4AAAAFAAgAAAATAA8AAAAJAAQAAAATABAAAAADAAkAAAAUAA8AAAABAAgAAAAUABAAAAABAAkAAAAVAA8AAAABAAgAAAAVABAAAAABAAkAAAAWAA8AAAACAAgAAAAWABAAAAACAAkAAAAgAA4AAAAFAAEAAAAgAA8AAAAFAAIAAAAgABAAAAAFAAMAAAAgABEAAAAFAAQAAAAgAAoAAAAFAAEAAAAgAAsAAAAFAAIAAAAgAAwAAAAFAAMAAAAgAA0AAAAFAAQAAAAgAAYAAAAFAAEAAAAgAAcAAAAFAAIAAAAgAAgAAAAFAAMAAAAgAAkAAAAFAAQAAAAgAAIAAAAFAAMAAAAgAAMAAAAFAAQAAAAgAAQAAAAFAAMAAAAgAAUAAAAFAAQAAAAgAAAAAAAFAAEAAAAgAAEAAAAFAAIAAAAHAAUAAAAIAAAAAAAHAAYAAAAIAAEAAAAHAAcAAAAIAAUAAAAIAAUAAAAJAAAAAAAIAAYAAAAJAAEAAAAIAAcAAAAJAAUAAAAKAAUAAAAAAAAAAAAKAAYAAAAAAAEAAAAKAAcAAAAAAAUAAAALAAUAAAABAAAAAAALAAYAAAAEAAQAAAALAAcAAAAEAAUAAAAMAAUAAAAFAAAAAAAMAAYAAAAFAAQAAAAMAAcAAAAFAAUAAAA=")
+tile_map_data = PackedByteArray("AAAgAAwAAAAFAAMAAAAgAAYAAAAFAAEAAAAgAAcAAAAFAAIAAAAgAAgAAAAFAAMAAAAgAAkAAAAFAAQAAAAgAAIAAAAFAAMAAAAgAAMAAAAFAAQAAAAgAAQAAAAFAAMAAAAgAAUAAAAFAAQAAAAgAAAAAAAFAAEAAAAgAAEAAAAFAAIAAAAdAAUAAAAAAAAAAAAdAAYAAAAAAAEAAAAdAAcAAAAAAAUAAAAeAAUAAAABAAAAAAAeAAYAAAAEAAQAAAAeAAcAAAAEAAUAAAAfAAUAAAAFAAAAAAAfAAYAAAAFAAQAAAAfAAcAAAAFAAUAAAAPAAAAAAANAAYAAAAQAAAAAAAOAAYAAAARAAAAAAAPAAYAAAAOAAAAAAAMAAYAAAAAABAAAAAIAAEAAAAAABEAAAAIAAUAAAABABAAAAAJAAQAAAABABEAAAADAAkAAAACABAAAAABAAgAAAACABEAAAABAAkAAAADABAAAAABAAgAAAADABEAAAABAAkAAAAEABAAAAACAAgAAAAEABEAAAACAAkAAAAFABAAAAADAAgAAAAFABEAAAADAAkAAAAGABAAAAAEAAgAAAAGABEAAAAEAAkAAAAHABAAAAADAAgAAAAHABEAAAADAAkAAAAAAA8AAAAAAAAAAAABAA8AAAAFAAgAAAAgAA0AAAAFAAQAAAAgAA4AAAAFAAEAAAAgAA8AAAAFAAIAAAAgABAAAAAFAAMAAAAgABEAAAAFAAQAAAATAA8AAAAAAAAAAAATABAAAAAIAAEAAAATABEAAAAIAAUAAAAUABAAAAAJAAQAAAAUABEAAAADAAkAAAAVABAAAAABAAgAAAAVABEAAAABAAkAAAAWABAAAAABAAgAAAAWABEAAAABAAkAAAAXABAAAAACAAgAAAAXABEAAAACAAkAAAAYABAAAAADAAgAAAAYABEAAAADAAkAAAAZABAAAAAEAAgAAAAZABEAAAAEAAkAAAAaABAAAAACAAgAAAAaABEAAAACAAkAAAAbABAAAAADAAgAAAAbABEAAAADAAkAAAAcABAAAAAEAAgAAAAcABEAAAAEAAkAAAAdABAAAAAEAAgAAAAdABEAAAAEAAkAAAAeAA8AAAAAAAAAAAAeABAAAAAIAAEAAAAeABEAAAADAAkAAAAUAA8AAAAFAAgAAAAfAA8AAAAFAAgAAAAfABAAAAAJAAQAAAAfABEAAAAFAAkAAAANAA8AAAAIAAAAAAANABAAAAAIAAEAAAANABEAAAAIAAUAAAAOABEAAAABAAUAAAAPABEAAAAEAAUAAAAQABEAAAAJAAUAAAAJAA8AAAAAAAAAAAAJABAAAAAIAAEAAAAJABEAAAADAAkAAAAKAA8AAAAFAAgAAAAKABAAAAAJAAQAAAAKABEAAAAFAAkAAAAIABAAAAADAAgAAAAIABEAAAADAAkAAAD//wAAAAAFAAEAAAD//wEAAAAFAAIAAAD//wwAAAAFAAEAAAD//w0AAAAFAAIAAAD//w4AAAAFAAMAAAD//w8AAAAFAAQAAAD//xAAAAAFAAEAAAD//xEAAAAFAAIAAAAQAA8AAAAFAAAAAAAQABAAAAAFAAEAAAAOAAEAAAAMAAcAAAAPAAEAAAANAAcAAAAQAAEAAAAOAAcAAAARAAEAAAAPAAcAAAD//wIAAAAFAAMAAAD//wMAAAAFAAQAAAD//wQAAAAFAAEAAAD//wUAAAAFAAIAAAD//wYAAAAFAAMAAAD//wcAAAAFAAQAAAD//wgAAAAFAAEAAAD//wkAAAAFAAIAAAD//woAAAAFAAMAAAD//wsAAAAFAAQAAAAOAAgAAAAMAAgAAAAOAAkAAAAAAAUAAAAPAAgAAAANAAgAAAAPAAkAAAADAAUAAAAQAAgAAAAOAAgAAAAQAAkAAAADAAUAAAARAAgAAAAPAAgAAAARAAkAAAAFAAUAAAAOAAIAAAAMAAgAAAAPAAIAAAANAAgAAAAQAAIAAAAOAAgAAAARAAIAAAAPAAgAAAAAAAQAAAAAAAAAAAABAAMAAAAAAAAAAAABAAQAAAAgAAcAAAACAAMAAAAFAAAAAAACAAQAAAAFAAQAAAAAAAUAAAAAAAUAAAABAAUAAAAEAAUAAAACAAUAAAAFAAUAAAAOAA8AAAABAAAAAAAPAA8AAAAEAAAAAAAOABAAAAACAAEAAAAPABAAAAADAAEAAAD//xIAAAASAAkAAAAAABIAAAATAAkAAAABABIAAAAUAAkAAAACABIAAAAVAAkAAAADABIAAAASAAkAAAAEABIAAAATAAkAAAAFABIAAAAUAAkAAAAGABIAAAAVAAkAAAAHABIAAAASAAkAAAAIABIAAAATAAkAAAAJABIAAAAUAAkAAAAKABIAAAAVAAkAAAALABIAAAASAAkAAAAMABIAAAATAAkAAAANABIAAAAUAAkAAAAOABIAAAAVAAkAAAAPABIAAAASAAkAAAAQABIAAAATAAkAAAARABIAAAAUAAkAAAASABIAAAAVAAkAAAATABIAAAASAAkAAAAUABIAAAATAAkAAAAVABIAAAAUAAkAAAAWABIAAAAVAAkAAAAXABIAAAASAAkAAAAYABIAAAATAAkAAAAZABIAAAAUAAkAAAAaABIAAAAVAAkAAAAbABIAAAASAAkAAAAcABIAAAATAAkAAAAdABIAAAAUAAkAAAAeABIAAAAVAAkAAAAfABIAAAASAAkAAAAgABIAAAATAAkAAAAAAAwAAgAAAAEAAAAAAA0AAQAAAAEAAAAAAA4AAQAAAAIAAAABAAwAAgABAAEAAAABAA0AAQABAAEAAAABAA4AAQABAAIAAAAAAAsAAgAAAAAAAAABAAsAAgABAAAAAAAgAAoAAAAFAAQAAAAgAAsAAAAFAAQAAAAdAAkABAAAAAAAAAAdAAoABAAAAAEAAAAeAAkABAABAAAAAAAeAAoABAABAAEAAAAeAAsAAQADAAAAAAAfAAsAAQAEAAAAAAAdAAsAAQACAAAAAAAeAAwAAQADAAEAAAAfAAwAAQAEAAEAAAAKAAYAAAAEAAAAAAAKAAcAAAADAAUAAAALAAIAAgABAAAAAAALAAMAAgABAAEAAAALAAQAAQABAAEAAAALAAUAAQABAAIAAAALAAYAAAAFAAAAAAALAAcAAAAFAAUAAAAJAAYAAAAAAAAAAAAJAAcAAAAAAAUAAAAKAAIAAgAAAAAAAAAKAAMAAgAAAAEAAAAKAAQAAQAAAAEAAAAKAAUAAQAAAAIAAAAFAAQAAAAAAAAAAAAFAAUAAAAAAAUAAAAGAAQAAAAEAAAAAAAGAAUAAAADAAUAAAAHAAQAAAAFAAAAAAAHAAUAAAAFAAUAAAA=")
 tile_set = SubResource("TileSet_57lar")
 
 [node name="Player" parent="." instance=ExtResource("2_ighry")]
-position = Vector2(15, 16)
+position = Vector2(37, 36)
 
 [node name="Parallax" parent="." instance=ExtResource("3_57lar")]
+z_index = -1
+position = Vector2(263, 95)
+metadata/_edit_lock_ = true
 
 [node name="Cangrejo" parent="." instance=ExtResource("4_mcl4o")]
 position = Vector2(94, 244)
@@ -420,30 +535,54 @@ position = Vector2(94, 244)
 position = Vector2(382, 223)
 
 [node name="Tiburon" parent="." instance=ExtResource("6_b023l")]
-position = Vector2(199, 197)
-
-[node name="Pinches" parent="." instance=ExtResource("7_v2l7u")]
-position = Vector2(255, 201)
+position = Vector2(492, 70)
 
 [node name="CabezaPincho" parent="." instance=ExtResource("8_heb5a")]
-position = Vector2(330, 38)
+position = Vector2(323, 23)
 move_type = "Vertical"
-distance = 100.0
+distance = 120.0
+
+[node name="Pinches" parent="." instance=ExtResource("7_v2l7u")]
+position = Vector2(116, 57)
+
+[node name="Pinches2" parent="." instance=ExtResource("7_v2l7u")]
+position = Vector2(193, 279)
+
+[node name="Pinches3" parent="." instance=ExtResource("7_v2l7u")]
+position = Vector2(288, 279)
 
 [node name="Moneda" parent="." instance=ExtResource("9_4uwuv")]
-position = Vector2(94, 19)
+position = Vector2(256, 119)
 
 [node name="Diamante" parent="." instance=ExtResource("10_rt5mq")]
-position = Vector2(59, 21)
-
-[node name="Llave" parent="." instance=ExtResource("11_3cbm3")]
-position = Vector2(94, 50)
-
-[node name="Cofre" parent="." instance=ExtResource("12_sq1bk")]
-position = Vector2(114, 69)
+position = Vector2(93, 56)
 
 [node name="Rubi" parent="." instance=ExtResource("14_bdl3q")]
-position = Vector2(46, 21)
+position = Vector2(161, 91)
+
+[node name="Rubi2" parent="." instance=ExtResource("14_bdl3q")]
+position = Vector2(507, 75)
+
+[node name="Diamante2" parent="." instance=ExtResource("10_rt5mq")]
+position = Vector2(240, 235)
+
+[node name="Moneda2" parent="." instance=ExtResource("9_4uwuv")]
+position = Vector2(448, 145)
+
+[node name="Llave" parent="." instance=ExtResource("11_3cbm3")]
+position = Vector2(25, 228)
+
+[node name="Cofre" parent="." instance=ExtResource("12_sq1bk")]
+position = Vector2(500, 228)
+
+[node name="AreaVictoria" parent="." instance=ExtResource("16_yidto")]
+position = Vector2(14, 30)
+
+[node name="Plataforma1" parent="." instance=ExtResource("17_n1cna")]
+position = Vector2(366, 141)
+speed = 65.0
+distancia = 80.0
+movimiento = "diagonal_2"
 
 [node name="LevelTimer" type="Timer" parent="."]
 wait_time = 90.0
@@ -455,19 +594,208 @@ wait_time = 2.0
 
 [node name="TimerVisual" type="CanvasLayer" parent="."]
 
+[node name="NinePatchRect" type="NinePatchRect" parent="TimerVisual"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -36.5
+offset_right = 36.5
+offset_bottom = 33.0
+grow_horizontal = 2
+texture = ExtResource("15_xwqj1")
+
 [node name="TimeLabel" type="Label" parent="TimerVisual"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 23.0
+offset_left = -19.0
+offset_top = 5.0
+offset_right = 21.0
+offset_bottom = 28.0
 grow_horizontal = 2
+theme_override_colors/font_color = Color(0.46562183, 0.73919374, 0.3459493, 1)
+theme_override_fonts/font = ExtResource("16_lu6xd")
+theme_override_font_sizes/font_size = 9
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="RecolectorMonedas" parent="." instance=ExtResource("15_lxs20")]
 
-[node name="AreaVictoria" parent="." instance=ExtResource("16_yidto")]
-position = Vector2(202, 47)
+[node name="Carteles" type="CanvasLayer" parent="."]
+
+[node name="PerdistePanel" type="Panel" parent="Carteles"]
+process_mode = 3
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = -106.75
+offset_right = 84.0
+offset_bottom = 106.75
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_4jjek")
+
+[node name="Label" type="Label" parent="Carteles/PerdistePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -58.0
+offset_right = 56.0
+offset_bottom = -35.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.75995755, 0, 0.021897662, 1)
+theme_override_font_sizes/font_size = 13
+text = "Perdiste!"
+
+[node name="Button" type="Button" parent="Carteles/PerdistePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.5
+offset_top = -14.0
+offset_right = 56.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.2509804, 0.09019608, 0, 1)
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_866pe")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4jjek")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4lgou")
+text = "Reiniciar"
+
+[node name="Button2" type="Button" parent="Carteles/PerdistePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = 19.0
+offset_right = 57.0
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.2509804, 0.09019608, 0, 1)
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_866pe")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4jjek")
+theme_override_styles/hover = SubResource("StyleBoxFlat_n1cna")
+text = "Salir"
+
+[node name="VictoriaPanel" type="Panel" parent="Carteles"]
+process_mode = 3
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = -106.75
+offset_right = 84.0
+offset_bottom = 106.75
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_4jjek")
+
+[node name="MonedasLabel" type="Label" parent="Carteles/VictoriaPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -52.0
+offset_top = 46.75
+offset_right = 53.0
+offset_bottom = 90.75
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.28426272, 0.60550857, 0.15152231, 1)
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Carteles/VictoriaPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.5
+offset_top = -14.0
+offset_right = 56.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.2509804, 0.09019608, 0, 1)
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_866pe")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4jjek")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4lgou")
+text = "Reiniciar"
+
+[node name="Button2" type="Button" parent="Carteles/VictoriaPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = 19.0
+offset_right = 57.0
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.2509804, 0.09019608, 0, 1)
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_866pe")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4jjek")
+theme_override_styles/hover = SubResource("StyleBoxFlat_n1cna")
+text = "Salir"
+
+[node name="SegundosPanel" type="Panel" parent="Carteles"]
+offset_left = 239.0
+offset_top = 24.0
+offset_right = 272.0
+offset_bottom = 42.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_smkmc")
+script = ExtResource("26_mqlg8")
+
+[node name="SegundosLabel" type="Label" parent="Carteles/SegundosPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.5
+offset_top = -6.5
+offset_right = 4.5
+offset_bottom = 6.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.5137255, 0.24705882, 0.29803923, 1)
+theme_override_font_sizes/font_size = 6
+text = "a"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="timeout" from="LevelTimer" to="." method="_on_level_timer_timeout"]
 [connection signal="timeout" from="CoinDrainTimer" to="." method="coin_drain"]
+[connection signal="pressed" from="Carteles/PerdistePanel/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Carteles/PerdistePanel/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Carteles/VictoriaPanel/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Carteles/VictoriaPanel/Button2" to="." method="_on_button_2_pressed"]

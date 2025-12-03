@@ -128,9 +128,11 @@ height = 28.0
 radius = 13.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 3
+collision_mask = 7
 script = ExtResource("1_wwpud")
-move_speed = 140.0
-jump_speed = 400.0
+move_speed = 160.0
+jump_speed = 350.0
 key_scene = ExtResource("2_p016m")
 sword_scene = ExtResource("3_7e4hv")
 
@@ -145,10 +147,6 @@ process_material = SubResource("ParticleProcessMaterial_drshg")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3tm5s")
 animation = &"Idle"
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(1, 0)
-zoom = Vector2(2, 2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -2)

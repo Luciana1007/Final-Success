@@ -8,7 +8,7 @@ func _ready():
 	monitorable = false
 	monitoring = false
 
-	body_entered.connect(_on_body_entered)
+
 
 func activate_area():
 	monitorable = true 

@@ -23,7 +23,12 @@ RecolectorMonedas="*res://Scripts/RecolectosMonedas/RecolectorMonedas.gd"
 
 window/size/viewport_width=512
 window/size/viewport_height=288
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep_width"
+
+[gui]
+
+theme/custom_font="uid://bnysi444ekg0m"
 
 [input]
 

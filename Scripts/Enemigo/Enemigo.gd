@@ -6,6 +6,7 @@ class_name Enemigo
 @export var knockback = 150 #al recibir daño, realiza un empujon hacia atras antes de morirse.
 @onready var pacman_sign: AnimatedSprite2D = $PacmanSign
 
+
 var health: int
 var is_pacman_mode : bool = false
 

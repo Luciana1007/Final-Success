@@ -85,6 +85,8 @@ func die():
 	await animated_sprite.animation_finished
 	queue_free()
 
+	get_tree().current_scene.on_player_death()
+
 func _on_area_2d_body_entered(body: Node2D) -> void: #si dentro de su area entra un enemigo, recibe daño
 	if body.is_in_group("enemigo"):
 		if has_sword and body.has_method("take_damage"):

@@ -47,6 +47,9 @@ radius = 22.0
 
 [node name="CabezaPincho" type="Area2D" groups=["obstaculo"]]
 script = ExtResource("1_a0j4a")
+move_type = null
+distance = null
+speed = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_e3hms")
